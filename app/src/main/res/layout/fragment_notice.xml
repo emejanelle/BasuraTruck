@@ -1,0 +1,136 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F0E9"
+    android:backgroundTint="#F1F0E9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/inria_serif_bold"
+            android:paddingBottom="10dp"
+            android:text="NOTICE"
+            android:textColor="#0D4715"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/calendar"
+            android:layout_gravity="center_horizontal"/>
+
+        <!-- Features for residents -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icons8dot"
+                android:contentDescription="Information Icon"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/info1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_light"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="You can only schedule a garbage pick-up based on your location."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="3dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icons8dot"
+            android:contentDescription="Information Icon"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:id="@+id/noticeinfo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inria_serif_light"
+            android:paddingStart="10dp"
+            android:paddingBottom="8dp"
+            android:text="Each location has specific days of the week designated for garbage collection. Please refer to the collection schedule for your area."
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icons8dot"
+                android:contentDescription="Information Icon"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/noticeinfo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_light"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="Ensure that you log your garbage pick-up on the allocated collection day."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icons8dot"
+                android:contentDescription="Information Icon"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/noticeinfo4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_light"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="Logging hours are strictly between 6:00 AM and 10:00 AM."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

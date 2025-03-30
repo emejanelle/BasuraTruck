@@ -1,0 +1,89 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/userbooknow_onclick"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="10dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:background="#6941644A"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:id="@+id/bookSolidWaste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button2_border"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/imageViewSolidWaste"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="Solid Waste Image"
+                android:src="@drawable/solid_waste" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Solid Waste"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button2_border">
+            </androidx.appcompat.widget.AppCompatButton>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bookFoodWaste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button2_border"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/imageViewFoodWaste"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="Food Waste Image"
+                android:src="@drawable/food_waste2" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Food Waste"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button2_border">
+            </androidx.appcompat.widget.AppCompatButton>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/buttonBookNowCancel"
+            android:layout_gravity="center"
+            android:text="CANCEL"
+            android:background="@drawable/button2_border"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:textSize="12dp">
+        </androidx.appcompat.widget.AppCompatButton>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

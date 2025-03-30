@@ -1,0 +1,317 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F0E9"
+    android:backgroundTint="#F1F0E9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/inria_serif_bold"
+            android:paddingBottom="10dp"
+            android:text="DEAR COLLECTOR"
+            android:textColor="#0D4715"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inria_serif_light"
+            android:paddingBottom="16dp"
+            android:text="Basura Track is a waste management application designed to help garbage  collectors easily manage waste pick-up reservations. "
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <!-- Features for residents -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icons8i"
+                android:contentDescription="Information Icon"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/info1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_light"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="Monitor pick-up locations and see the current and next destination for efficient route planning."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icons8i"
+                android:contentDescription="Information Icon"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/info2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_light"
+                android:paddingStart="10dp"
+                android:text="Confirm or reject garbage pick-up reservations based on compliance with guidelines and location requirements."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!--    What to See-->
+        <TextView
+            android:id="@+id/what_to_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inria_serif_bold"
+            android:paddingTop="10dp"
+            android:paddingBottom="8dp"
+            android:text="What to See"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="3dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="Information Icon"
+                android:paddingBottom="8dp"
+                android:src="@drawable/icons8check50" />
+
+            <TextView
+                android:id="@+id/garbageinfoheader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_sans"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="Map View"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingBottom="3dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icons8dot"
+                android:contentDescription="Information Icon"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/info3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_light"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="A map is available displaying all the locations where waste pick-up reservations have been made."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingBottom="3dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icons8dot"
+                android:contentDescription="Information Icon"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/info4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_light"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="Visual indicators to see the current pick-up location and the next destination for efficient route planning."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!--    Transaction History-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="3dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="Information Icon"
+                android:paddingBottom="8dp"
+                android:src="@drawable/icons8check50" />
+
+            <TextView
+                android:id="@+id/transactionHisheader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_sans"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="Transaction History"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingBottom="3dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icons8dot"
+                android:contentDescription="Information Icon"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/transactionPanelInfo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_light"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="Visual indicators to see the current pick-up location and the next destination for efficient route planning."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Confirmation Panel -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="3dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="Information Icon"
+                android:paddingBottom="8dp"
+                android:src="@drawable/icons8check50" />
+
+            <TextView
+                android:id="@+id/confirmationheader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_sans"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="Confirmation Panel"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingBottom="3dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icons8dot"
+                android:contentDescription="Information Icon"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/collectorsPanelinfo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_light"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="Collectors can confirm or reject waste pick-up reservations based on compliance with guidelines and location requirements."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingBottom="3dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icons8dot"
+                android:contentDescription="Information Icon"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/collectorsPanelInfo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_light"
+                android:paddingStart="10dp"
+                android:paddingBottom="8dp"
+                android:text="Collectors can confirm once the garbage has been successfully picked up, ensuring accuracy and accountability."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
