@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -16,29 +15,29 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- App Logo -->
-    <ImageView
-        android:id="@+id/appLogo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="start|center_vertical"
-        android:src="@drawable/logo" /> <!-- Replace with your logo drawable -->
+        <!-- App Logo -->
+        <ImageView
+            android:id="@+id/appLogo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start|center_vertical"
+            android:src="@drawable/logo" /> <!-- Replace with your logo drawable -->
 
-    <!-- Notification Icon -->
-    <ImageView
-        android:id="@+id/notificationIcon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="end|center_vertical"
-        android:layout_marginRight="15dp"
-        android:src="@drawable/iconsnotification" /> <!-- Replace with your notification icon drawable -->
+        <!-- Notification Icon -->
+        <ImageView
+            android:id="@+id/notificationIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/iconsnotification" /> <!-- Replace with your notification icon drawable -->
 
-</androidx.appcompat.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
 
-<FrameLayout
+    <FrameLayout
         android:id="@+id/frameLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -46,18 +45,16 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNavBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customToolbar">
-
-    </FrameLayout>
+        app:layout_constraintTop_toBottomOf="@+id/customToolbar" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#C2C0B6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_bar"
-        android:background="#C2C0B6"/>
+        app:menu="@menu/bottom_nav_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

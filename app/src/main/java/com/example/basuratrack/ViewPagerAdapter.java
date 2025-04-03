@@ -5,29 +5,24 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import java.util.List;
+
 public class ViewPagerAdapter extends FragmentStateAdapter {
-    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+    private final List<Integer> layoutIds;
+
+    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, List<Integer> layoutIds) {
         super(fragmentActivity);
+        this.layoutIds = layoutIds;
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        switch (position) {
-            case 0:
-                return new aboutfrgmnt();
-            case 1:
-                return new collector_about();
-            case 2:
-                return new notice();
-            case 3:
-                return new accepted_wastefrgmnt();
-        }
-        return null;
+        return DynamicFragment.newInstance(layoutIds.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 4;
+        return layoutIds.size();
     }
 }

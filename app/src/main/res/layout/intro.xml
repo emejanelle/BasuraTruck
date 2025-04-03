@@ -37,13 +37,16 @@
 
 <!--    <com.google.android.material.tabs.TabLayout-->
 <!--        android:id="@+id/tabLayout"-->
-<!--        android:layout_width="match_parent"-->
+<!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
 <!--        android:layout_marginBottom="40dp"-->
-<!--        android:background="#F1F0E9"-->
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:tabIndicatorColor="#4CAF50"-->
-<!--        app:tabIndicatorHeight="4dp" />-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="@id/slideViewPager2"-->
+<!--        app:tabIndicatorAnimationDuration="300"-->
+<!--        android:background="#F1F0E9"-->
+<!--        android:backgroundTint="#F1F0E9"/>-->
 
     <LinearLayout
         android:id="@+id/indicator_layout"

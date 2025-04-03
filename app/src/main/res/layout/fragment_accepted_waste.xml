@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".aboutfrgmnt"
     android:background="#F1F0E9"
     android:backgroundTint="#F1F0E9">
 

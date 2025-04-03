@@ -16,13 +16,9 @@
 
 package com.example.basuratrack;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -45,7 +41,6 @@ public class UserHome extends AppCompatActivity {
         toolbar = findViewById(R.id.customToolbar);
         setSupportActionBar(toolbar);
 
-//        addBottomBorderToToolbar(toolbar);
 
         // Set up the toolbar for the default fragment (Home)
         setupToolbar("Home", false);
@@ -59,7 +54,6 @@ public class UserHome extends AppCompatActivity {
 
         binding.bottomNavBar.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.home) {
-                getSupportActionBar().setDisplayShowTitleEnabled(false);
                 replaceFragment(new userHomePagefrgmnt());
                 return true;
             } else if (item.getItemId() == R.id.transHistory) {
@@ -75,7 +69,6 @@ public class UserHome extends AppCompatActivity {
             }
 
         });
-
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -99,18 +92,4 @@ public class UserHome extends AppCompatActivity {
             }
         }
     }
-    private void addBottomBorderToToolbar(Toolbar toolbar) {
-        // Create a View to act as the bottom border
-        View border = new View(this);
-        border.setLayoutParams(new Toolbar.LayoutParams(
-                Toolbar.LayoutParams.MATCH_PARENT // Match the toolbar width
-                 // Height of the border in pixels (can use dp conversion for dynamic sizing)
-        ));
-        border.setBackgroundColor(getResources().getColor(android.R.color.darker_gray)); // Set the border color
-
-        // Add the border as a child view of the Toolbar
-        toolbar.addView(border);
-
-    }
-
 }
