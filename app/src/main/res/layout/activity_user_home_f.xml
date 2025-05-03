@@ -110,7 +110,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_border"
+                    android:background="@drawable/cardview2_border"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -180,7 +180,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/button_border"
+                        android:background="@drawable/cardview2_border"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:padding="8dp">
@@ -204,7 +204,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/button_border"
+                        android:background="@drawable/cardview2_border"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:padding="8dp">
@@ -228,7 +228,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/button_border"
+                        android:background="@drawable/cardview2_border"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:padding="8dp">
@@ -253,7 +253,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/button_border"
+                        android:background="@drawable/cardview2_border"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:padding="8dp">
@@ -278,7 +278,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/button_border"
+                        android:background="@drawable/cardview2_border"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:padding="8dp">

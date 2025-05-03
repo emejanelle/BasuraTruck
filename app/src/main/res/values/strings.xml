@@ -9,5 +9,7 @@
     </style>
 
     <string name="select">Filter</string>
+    <string name="register_your_vehicle"><u>Register your vehicle</u></string>
+    <string name="register_your_address"><u>Register your address</u></string>
 
 </resources>

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/button_border"
+    android:background="@drawable/cardview2_border"
     android:backgroundTint="#F1F0E9"
-    tools:context=".UserTransactHistoryfrgmnt">
+    tools:context=".collectorTransHistory">
 
     <LinearLayout
         android:layout_width="match_parent"

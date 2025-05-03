@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/cardview"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/cardview_border"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/imageViewCardView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="Image"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/signUpLabel"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/cardview_border"
+        android:fontFamily="@font/inria_serif_bold"
+        android:text="Label"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+</LinearLayout>

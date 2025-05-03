@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:background="#6941644A"
-        android:layout_width="300dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical"
@@ -20,28 +20,31 @@
             android:id="@+id/bookSolidWaste"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button2_border"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:background="@drawable/cardview_border"
+            android:clickable="true"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageViewSolidWaste"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_width="210dp"
+                android:layout_height="112dp"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="Solid Waste Image"
-                android:src="@drawable/solid_waste" />
+                android:src="@drawable/solid_waste">
 
-            <androidx.appcompat.widget.AppCompatButton
+            </ImageView>
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:text="Solid Waste"
-                android:textColor="@android:color/white"
-                android:textSize="12sp"
-                android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/button2_border">
-            </androidx.appcompat.widget.AppCompatButton>
+                android:layout_margin="5dp"
+                android:background="@drawable/cardview_border"
+                android:text="Solid Waste"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"></TextView>
 
         </LinearLayout>
 
@@ -49,28 +52,29 @@
             android:id="@+id/bookFoodWaste"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button2_border"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:background="@drawable/cardview_border"
+            android:clickable="true"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageViewFoodWaste"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_width="210dp"
+                android:layout_height="112dp"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="Food Waste Image"
                 android:src="@drawable/food_waste2" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:text="Food Waste"
-                android:textColor="@android:color/white"
-                android:textSize="12sp"
-                android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/button2_border">
-            </androidx.appcompat.widget.AppCompatButton>
+                android:layout_margin="5dp"
+                android:background="@drawable/cardview_border"
+                android:text="Food Waste"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"></TextView>
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -79,7 +83,7 @@
             android:id="@+id/buttonBookNowCancel"
             android:layout_gravity="center"
             android:text="CANCEL"
-            android:background="@drawable/button2_border"
+            android:background="@drawable/button_border"
             android:layout_margin="10dp"
             android:textColor="@color/white"
             android:textSize="12dp">

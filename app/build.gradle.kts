@@ -1,8 +1,8 @@
-import com.android.tools.r8.internal.fr
-
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.google.gms.google.services)
+    id("com.google.gms.google-services")
+    id("com.google.android.libraries.mapsplatform.v3-beta-migration") version "0.2.0"
+
 }
 
 android {
@@ -40,7 +40,19 @@ android {
 
 dependencies {
 
-    implementation("androidx.cardview:cardview:1.0.0")
+    implementation(libs.cardview)
+    implementation(libs.firebase.auth)
+    implementation(libs.ccp)
+    implementation("org.osmdroid:osmdroid-android:6.1.6")
+    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
+    implementation("com.google.firebase:firebase-firestore:24.9.1")
+    implementation("androidx.camera:camera-core:1.4.2")
+    implementation("androidx.camera:camera-camera2:1.4.2")
+    implementation("androidx.camera:camera-lifecycle:1.4.2")
+    implementation("androidx.camera:camera-view:1.4.2")
+
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
+    implementation("com.google.android.gms:play-services-location:17.0.0")
 
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -50,6 +62,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-
-
 }

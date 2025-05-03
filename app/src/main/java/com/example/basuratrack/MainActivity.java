@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
 
     private static int SPLASH_SCREEN = 5000;
@@ -18,11 +21,13 @@ public class MainActivity extends AppCompatActivity {
     Animation topAnim, bottomAnim;
     ImageView image;
     TextView logo, slogan;
+    FirebaseAuth mAuth;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
 
 //        Full screen
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -35,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         image = findViewById(R.id.logoimgvw);
         logo = findViewById(R.id.apptitle);
         slogan = findViewById(R.id.tagline);
-        
+
         image.setAnimation(topAnim);
         logo.setAnimation(bottomAnim);
         slogan.setAnimation(bottomAnim);
@@ -43,10 +48,22 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, welcome.class);
+                Intent intent = new Intent(MainActivity.this, loginSignup.class);
                 startActivity(intent);
                 finish();
             }
         }, SPLASH_SCREEN);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            intent = new Intent(getApplicationContext(), userMain.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }
