@@ -5,20 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
-
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,7 +28,6 @@ public class IntroActivity extends AppCompatActivity {
 
         ViewPager2 viewpager = findViewById(R.id.slideViewPager2);
         indicatorLayout = findViewById(R.id.indicator_layout);
-//        TabLayout tabLayout = findViewById(R.id.tabLayout);
 
         List<Integer> layoutIds = Arrays.asList(
                 R.layout.fragment_user_about,
@@ -81,60 +73,85 @@ public class IntroActivity extends AppCompatActivity {
 
         // Set up the "SKIP" button functionality
         Button skipButton = findViewById(R.id.btnSkip);
-        skipButton.setOnClickListener(v -> {
+        skipButton.setOnClickListener(v -> showRoleSelectionDialog());
+
+    }
+
+    private void showRoleSelectionDialog() {
+
+        try {
+
+
             dialog = new Dialog(this);
             dialog.setContentView(R.layout.materialcardview);
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-            dialog.show();
+            dialog.setCancelable(true);
 
             // Find the parent layout in the dialog
             LinearLayout parentLayout = dialog.findViewById(R.id.cardViewParent);
             TextView registerAsTextView = dialog.findViewById(R.id.dialog_register_as);
-            if (registerAsTextView != null) {
-                registerAsTextView.setVisibility(View.VISIBLE);
-            } else {
-                Toast.makeText(this, "TextView not found!", Toast.LENGTH_SHORT).show();
+//
+//            if (registerAsTextView != null) {
+//                registerAsTextView.setVisibility(View.VISIBLE);
+//            } else {
+//                Toast.makeText(this, "TextView not found!", Toast.LENGTH_SHORT).show();
+//            }
+//
+            if (parentLayout == null) {
+                Toast.makeText(this, "Error loading selection", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+                return;
             }
 
+            parentLayout.removeAllViews();
 
-            if (parentLayout != null) {
-                LayoutInflater inflater = LayoutInflater.from(this);
+            LayoutInflater inflater = LayoutInflater.from(this);
+//
+//                // Inflate and add "Resident" card from item_card.xml
+            View residentCard = inflater.inflate(R.layout.item_card, parentLayout, false);
+            TextView residentLabel = residentCard.findViewById(R.id.signUpLabel);
+            ImageView residentImage = residentCard.findViewById(R.id.imageViewCardView);
+            residentLabel.setText("Resident");
+            residentImage.setVisibility(View.GONE); // Hide the image if needed
+            parentLayout.addView(residentCard);
 
-                // Inflate and add "Resident" card from item_card.xml
-                View residentCard = inflater.inflate(R.layout.item_card, parentLayout, false);
-                TextView residentLabel = residentCard.findViewById(R.id.signUpLabel);
-                ImageView residentImage = residentCard.findViewById(R.id.imageViewCardView);
-                residentLabel.setText("Resident");
-                residentImage.setVisibility(View.GONE); // Hide the image if needed
-                parentLayout.addView(residentCard);
+//                // Inflate and add "Collector" card from item_card.xml
+            View collectorCard = inflater.inflate(R.layout.item_card, parentLayout, false);
+            TextView collectorLabel = collectorCard.findViewById(R.id.signUpLabel);
+            ImageView collectorImage = collectorCard.findViewById(R.id.imageViewCardView);
+            collectorLabel.setText("Collector");
+            collectorImage.setVisibility(View.GONE); // Hide the image if needed
+            parentLayout.addView(collectorCard);
 
-                residentCard.setOnClickListener(view -> {
-                    Toast.makeText(this, "residentCardView clicked!", Toast.LENGTH_SHORT).show();
-                    // Proceed to the Resident layout
-                    Intent intent = new Intent(this, residentSignUp.class);
-                    startActivity(intent);
-                });
+            residentCard.setOnClickListener(view -> {
+                startSignUpActivity("resident");
+                dialog.dismiss();
+            });
 
+            collectorCard.setOnClickListener(view -> {
+                startSignUpActivity("collector");
+                dialog.dismiss();
+            });
 
-                // Inflate and add "Collector" card from item_card.xml
-                View collectorCard = inflater.inflate(R.layout.item_card, parentLayout, false);
-                TextView collectorLabel = collectorCard.findViewById(R.id.signUpLabel);
-                ImageView collectorImage = collectorCard.findViewById(R.id.imageViewCardView);
-                collectorLabel.setText("Collector");
-                collectorImage.setVisibility(View.GONE); // Hide the image if needed
-                parentLayout.addView(collectorCard);
+            dialog.show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
 
-                collectorCard.setOnClickListener(view -> {
-                    // Proceed to the Resident layout
-//                    Intent intent = new Intent(this, collectorSignUp.class); // Replace with your target activity class
-//                    startActivity(intent);
-                });
+    private void startSignUpActivity(String role) {
+        Intent intent = new Intent(this, signUp.class);
+        intent.putExtra("USER_ROLE", role);
+        startActivity(intent);
+    }
 
+    @Override
+    protected void onDestroy() {
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
+        }
 
-            } else {
-                Toast.makeText(this, "Parent layout not found in dialog!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        super.onDestroy();
     }
 }

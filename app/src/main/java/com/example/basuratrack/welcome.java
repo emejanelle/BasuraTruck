@@ -66,9 +66,9 @@ public class welcome extends AppCompatActivity {
                 parentLayout.addView(residentCard);
 
                 residentCard.setOnClickListener(view -> {
-                    Toast.makeText(this, "residentCardView clicked!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Registering as resident", Toast.LENGTH_SHORT).show();
                     // Proceed to the Resident layout
-                    Intent intent = new Intent(this, residentSignUp.class);
+                    Intent intent = new Intent(this, userSignUp.class);
                     startActivity(intent);
                 });
 
@@ -82,27 +82,17 @@ public class welcome extends AppCompatActivity {
                 parentLayout.addView(collectorCard);
 
                 collectorCard.setOnClickListener(view -> {
+                    Toast.makeText(this, "Registering as collector", Toast.LENGTH_SHORT).show();
                     // Proceed to the Resident layout
-//                    Intent intent = new Intent(this, collectorSignUp.class); // Replace with your target activity class
+                    Intent intent = new Intent(this, userSignUp.class);
                     startActivity(intent);
                 });
-
 
             } else {
                 Toast.makeText(this, "Parent layout not found in dialog!", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
-//    private void addCardToParent(View cardView) {
-//        // Find the parent container inside the MaterialCardView
-//        LinearLayout parentLayout = dialog.findViewById(R.id.cardViewParent);
-//        if (parentLayout != null) {
-//            parentLayout.addView(cardView); // Dynamically add the card
-//        } else {
-//            Toast.makeText(this, "Parent layout not found!", Toast.LENGTH_SHORT).show();
-//        }
-//    }
 
     @Override
     public void onStart() {

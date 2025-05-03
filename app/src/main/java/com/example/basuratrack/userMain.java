@@ -2,8 +2,6 @@ package com.example.basuratrack;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,23 +12,13 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class userMain extends AppCompatActivity {
     Button bookNowButton;
@@ -149,7 +137,7 @@ public class userMain extends AppCompatActivity {
         emailtxtView = findViewById(R.id.emailView);
 
         if (user == null) {
-            Intent intent = new Intent(getApplicationContext(), loginSignup.class);
+            Intent intent = new Intent(getApplicationContext(), userLogin.class);
             startActivity(intent);
             finish();
         } else {
@@ -162,7 +150,7 @@ public class userMain extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
 
-                Intent intent = new Intent(getApplicationContext(), loginSignup.class);
+                Intent intent = new Intent(getApplicationContext(), userLogin.class);
                 startActivity(intent);
                 finish();
 

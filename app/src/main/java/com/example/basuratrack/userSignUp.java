@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -16,9 +18,20 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class userSignUp {
+public class userSignUp extends AppCompatActivity {
+    public interface RegistrationCallback {
+        void onSuccess(String role);
+        void onFailure(String error);
+    }
 
-    public static void userRegistration(Activity act, String fname, String mname, String lname, String contact, String email, String pass, String confirmPass, String role, ProgressBar progressBar, Button createAccountButton) {
+    public interface VerificationCallback {
+        void onVerified(String role);
+        void onNotVerified();
+    }
+
+    public static void userRegistration(Activity act, String fname, String mname, String lname, String contact, String email, String pass, String confirmPass, String role, ProgressBar progressBar, RegistrationCallback callback) {
+
+//        Validation checks
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(act, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
             progressBar.setVisibility(View.GONE);
@@ -50,10 +63,10 @@ public class userSignUp {
                    db.collection("users").document(uid).set(userMap).addOnCompleteListener(aVoid -> {
                       user.sendEmailVerification().addOnCompleteListener(verifyTask -> {
                           if (verifyTask.isSuccessful()){
-                              Toast.makeText(act, "Verification email sent. Please verify before continuing.", Toast.LENGTH_LONG).show();
-
+                              callback.onSuccess(role);
+                              Toast.makeText(act, "Verification email sent. Please verify before continuing.", Toast.LENGTH_SHORT).show();
                           } else {
-                              Toast.makeText(act, "Failed to send verification email.", Toast.LENGTH_SHORT).show();
+                              callback.onFailure("Failed to send verification email.");
                           }
                       });
                    }).addOnFailureListener(e -> {
@@ -61,26 +74,24 @@ public class userSignUp {
                    });
                }
            } else {
-               Toast.makeText(act, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+               callback.onFailure("Authentication failed: " + task.getException().getMessage());
            }
         });
     }
 
-    public static void checkEmailVerification(Activity activity, ProgressBar progressBar) {
+    public static void checkEmailVerification(Activity activity, VerificationCallback callback) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user == null) {
-            Toast.makeText(activity, "User not logged in.", Toast.LENGTH_SHORT).show();
+            callback.onNotVerified();
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
-
         user.reload().addOnCompleteListener(task -> {
-            progressBar.setVisibility(View.GONE);
-
             if (task.isSuccessful()) {
                 if (user.isEmailVerified()) {
+
+//                  Get user role
                     FirebaseFirestore.getInstance()
                             .collection("users")
                             .document(user.getUid())
@@ -88,35 +99,17 @@ public class userSignUp {
                             .addOnSuccessListener(documentSnapshot -> {
                                 if (documentSnapshot.exists()) {
                                     String role = documentSnapshot.getString("role");
-                                    Intent intent;
 
-                                    if ("collector".equals(role)) {
-                                        intent = new Intent(activity, registerYourVehicle.class);
-                                    } else if ("resident".equals(role)) {
-                                        intent = new Intent(activity, registerAddress.class);
-                                    } else {
-                                        Toast.makeText(activity, "Unknown user role.", Toast.LENGTH_SHORT).show();
-                                        return;
-                                    }
-
-                                    Toast.makeText(activity, "Email verified! Proceeding...", Toast.LENGTH_SHORT).show();
-                                    activity.startActivity(intent);
-                                    activity.finish();
+                                    callback.onVerified(role);
                                 } else {
-                                    Toast.makeText(activity, "User role not found in Firestore.", Toast.LENGTH_SHORT).show();
+                                    callback.onNotVerified();
                                 }
-                            })
-                            .addOnFailureListener(e -> {
-                                Toast.makeText(activity, "Failed to fetch user role.", Toast.LENGTH_SHORT).show();
                             });
-//                    Intent intent = new Intent(activity, nextPageClass);
-//                    activity.startActivity(intent);
-//                    activity.finish();
                 } else {
-                    Toast.makeText(activity, "Please verify your email first.", Toast.LENGTH_SHORT).show();
+                    callback.onNotVerified();
                 }
             } else {
-                Toast.makeText(activity, "Failed to reload user.", Toast.LENGTH_SHORT).show();
+                callback.onNotVerified();
             }
         });
     }

@@ -43,13 +43,16 @@
             android:name=".registerYourVehicle"
             android:exported="false" />
         <activity
-            android:name=".collectorSignUp"
+            android:name=".signUp"
             android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".residentSignUp"-->
+<!--            android:exported="false" />-->
+
+        <activity android:name="userSignUp"
+            android:exported="false"/>
         <activity
-            android:name=".residentSignUp"
-            android:exported="false" />
-        <activity
-            android:name=".loginSignup"
+            android:name=".userLogin"
             android:exported="false" />
         <activity
             android:name=".welcome"

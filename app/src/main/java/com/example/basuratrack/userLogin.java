@@ -7,23 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -32,10 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-
-import org.w3c.dom.Text;
-
-public class loginSignup extends AppCompatActivity {
+public class userLogin extends AppCompatActivity {
     Dialog dialog;
     TextView signUpButton;
     Button logInBtn;
@@ -43,7 +31,6 @@ public class loginSignup extends AppCompatActivity {
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     Intent intent;
-    RadioGroup roleRGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,12 +55,12 @@ public class loginSignup extends AppCompatActivity {
                 password = String.valueOf(editTextPassword.getText());
 
                 if (TextUtils.isEmpty(email)){
-                    Toast.makeText(loginSignup.this, "Enter Email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(userLogin.this, "Enter Email", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(loginSignup.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(userLogin.this, "Enter Password", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -92,12 +79,12 @@ public class loginSignup extends AppCompatActivity {
                                             String role = documentSnapshot.getString("role");
 
                                             if ("resident".equals(role)) {
-                                                intent = new Intent(loginSignup.this, userMain.class);
+                                                intent = new Intent(userLogin.this, userMain.class);
                                                 progressBar.setVisibility((View.GONE));
                                             } else if ("collector".equals(role)) {
-                                                intent = new Intent(loginSignup.this, collectorMain.class);
+                                                intent = new Intent(userLogin.this, collectorMain.class);
                                             } else {
-                                                Toast.makeText(loginSignup.this, "Role not found or invalid.", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(userLogin.this, "Role not found or invalid.", Toast.LENGTH_SHORT).show();
                                                 progressBar.setVisibility((View.GONE));
                                                 return;
                                             }
@@ -105,12 +92,12 @@ public class loginSignup extends AppCompatActivity {
                                             startActivity(intent);
                                             finish();
                                         } else {
-                                            Toast.makeText(loginSignup.this, "User data not found.", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(userLogin.this, "User data not found.", Toast.LENGTH_SHORT).show();
                                             progressBar.setVisibility(View.GONE);
                                         }
                                     })
                                             .addOnFailureListener(e -> {
-                                                Toast.makeText(loginSignup.this, "Failed to retrieve user role.", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(userLogin.this, "Failed to retrieve user role.", Toast.LENGTH_SHORT).show();
                                                 Log.e(TAG, "Firestore error: ", e);
                                             });
                                 }
@@ -118,11 +105,11 @@ public class loginSignup extends AppCompatActivity {
 //                                if (task.isSuccessful()) {
 //                                    navigateBasedOnRole();
 //                                    // Sign in success, update UI with the signed-in user's information
-//                                    Toast.makeText(loginSignup.this, "Logged In Successfully!",
+//                                    Toast.makeText(userLogin.this, "Logged In Successfully!",
 //                                            Toast.LENGTH_SHORT).show();
 //                                } else {
 //                                    // If sign in fails, display a message to the user.
-//                                    Toast.makeText(loginSignup.this, "Authentication failed.",
+//                                    Toast.makeText(userLogin.this, "Authentication failed.",
 //                                            Toast.LENGTH_SHORT).show();
 //                                }
                             }

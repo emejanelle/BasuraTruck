@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginSignup"
+    tools:context=".userSignUp"
     android:background="#F1F0E9"
     android:backgroundTint="#F1F0E9"
     android:orientation="vertical"

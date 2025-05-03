@@ -86,7 +86,7 @@ public class collectorMain extends AppCompatActivity {
 
                 emailtxtView = findViewById(R.id.emailView);
                 if (user == null) {
-                    Intent intent = new Intent(getApplicationContext(), loginSignup.class);
+                    Intent intent = new Intent(getApplicationContext(), userLogin.class);
                     startActivity(intent);
                     finish();
                 }
@@ -101,7 +101,7 @@ public class collectorMain extends AppCompatActivity {
                     public void onClick(View view) {
                         FirebaseAuth.getInstance().signOut();
 
-                        Intent intent = new Intent(getApplicationContext(), loginSignup.class);
+                        Intent intent = new Intent(getApplicationContext(), userLogin.class);
                         startActivity(intent);
                         finish();
 
